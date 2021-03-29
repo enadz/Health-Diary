@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ssst.healthdiary.properties.ServiceProperties;
+import ssst.healthdiary.backend.properties.ServiceProperties;
 
 @Configuration
 @EnableConfigurationProperties(ServiceProperties.class)

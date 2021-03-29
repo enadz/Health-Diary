@@ -1,4 +1,4 @@
-package ssst.healthdiary.models;
+package ssst.healthdiary.backend.models;
 
 public class MultipleBirth {
     private boolean multipleBirths;

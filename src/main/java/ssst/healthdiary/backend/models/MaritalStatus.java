@@ -1,4 +1,4 @@
-package ssst.healthdiary.models;
+package ssst.healthdiary.backend.models;
 
 public enum MaritalStatus {
     ANNULLED("Annulled"),
