@@ -11,7 +11,7 @@ import org.hl7.fhir.dstu3.model.DomainResource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/*")
+@WebServlet("/fhir/*")
 public class SimpleRestfulServer extends RestfulServer {
         //Initialize
     @Override

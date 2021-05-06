@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.Enumerations;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +22,8 @@ import java.util.stream.Collectors;
 
 public class PatientResourceProvider implements IResourceProvider {
 
-    //    @Autowired
-//    PractitionerResourceProvider practitionerResourceProvider;
+    @Autowired
+    PractitionerResourceProvider practitionerResourceProvider;
 
     public PatientResourceProvider() {  }
 

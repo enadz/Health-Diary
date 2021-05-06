@@ -27,6 +27,5 @@ public class ServiceProperties {
 
         private String clientId = "";
         private String clientSecret = "";
-        private String spreadsheetId = "";
     }
 }

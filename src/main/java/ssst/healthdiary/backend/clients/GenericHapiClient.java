@@ -1,15 +1,10 @@
 package ssst.healthdiary.backend.clients;
 
-import static org.hl7.fhir.dstu3.model.Appointment.SP_IDENTIFIER;
-
 import ca.uhn.fhir.rest.api.MethodOutcome;
-import ca.uhn.fhir.rest.api.SummaryEnum;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
-import ca.uhn.fhir.rest.gclient.TokenClientParam;
 import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +12,6 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleLinkComponent;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.instance.model.api.IAnyResource;
 
 @AllArgsConstructor
 public abstract class GenericHapiClient<T extends Resource> {
@@ -60,6 +54,13 @@ public abstract class GenericHapiClient<T extends Resource> {
         update(resource, resourceId);
         return getById(resourceId);
     }
+
+    //Update and retrieve FHIR object by id.
+    public T updateAndGet(T resource, String resourceId) {
+        update(resource, resourceId);
+        return getById(resourceId);
+    }
+
 
     //Read FHIR resource by ID
     public T getById(String id) throws ResourceNotFoundException {
