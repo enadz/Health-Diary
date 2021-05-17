@@ -30,5 +30,4 @@ public interface PatientMapper extends ResourceMapper<PatientPayload,Patient>{
             @Mapping(source = "active", target = "active")
     })
     Patient toEntity(PatientPayload patientPayload);
-
 }
