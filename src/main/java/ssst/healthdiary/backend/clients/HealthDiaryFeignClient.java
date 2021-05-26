@@ -5,11 +5,11 @@ import feign.Headers;
 import feign.Param;
 import feign.QueryMap;
 import feign.RequestLine;
-import org.springframework.cloud.netflix.feign.FeignClient;
 
 import java.util.Map;
 
-@FeignClient
+import java.util.Map;
+
 public interface HealthDiaryFeignClient {
 
     // https://www.googleapis.com/fitness/v1
@@ -20,6 +20,8 @@ public interface HealthDiaryFeignClient {
 //                                          @QueryMap Map<String, String> queryMap,
 //                                          @Param("endTimeMillis") int endTimeMillis,
 //                                          @Param("startTimeMillis") int startTimeMillis);
+
+
 //{
 //  "aggregateBy": [
 //    {
