@@ -91,7 +91,6 @@ public abstract class GenericHapiClient<T extends Resource> {
         final Collection<T> resources = new ArrayList<>();
 
         addResources(resources, bundle);
-
         String nextUrl;
 
         final BundleLinkComponent linkComponent = bundle.getLink("next");
@@ -113,7 +112,6 @@ public abstract class GenericHapiClient<T extends Resource> {
                 nextUrl = nextLinkComponent != null ? nextLinkComponent.getUrl() : null;
             }
         }
-
         return resources;
     }
 

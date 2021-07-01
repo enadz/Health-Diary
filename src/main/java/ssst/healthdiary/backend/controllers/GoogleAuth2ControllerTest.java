@@ -5,29 +5,37 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.services.fitness.Fitness;
 import com.google.api.services.fitness.FitnessScopes;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ssst.healthdiary.backend.clients.HealthDiaryFeignClient;
+import ssst.healthdiary.backend.services.GoogleTokenService;
+import ssst.healthdiary.backend.services.PatientService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping({"/api"})
 public class GoogleAuth2ControllerTest {
 
-    private static HttpTransport httpTransport;
-    private static JsonFactory jsonFactory;
-    private static HttpRequestInitializer httpRequestInitializer;
+//    private static HttpTransport httpTransport;
+//    private static JsonFactory jsonFactory;
+//    private static HttpRequestInitializer httpRequestInitializer;
+    @Autowired
+    GoogleTokenService googleTokenService;
 
-    @GetMapping("/")
-    public String helloWorld() {
-        return "you don't need to be logged in";
+    @PostMapping("/userToken")
+    public String recievingAuthToken(@RequestBody String authToken) {
+        return authToken;
     }
 
-    @GetMapping("/id")
-    public String index() {
-        OAuth2User user = getCurrentUser();
-        Object credentials =getcredentials();
+//    @GetMapping("/id")
+//    public String index() {
+//        OAuth2User user = getCurrentUser();
+//        Object credentials =getcredentials();
 
 //
 //        Fitness service = new Fitness.Builder(
@@ -40,11 +48,11 @@ public class GoogleAuth2ControllerTest {
 //                AggregateRequest content)
 //                                          throws java.io.IOException
 //
-        return "Hello " + user.getAttributes().get("name") + ". Your email is " + user.getAttributes().get("email")
-                + " and your profile picture is <img src='"+user.getAttributes().get("picture")+"' /> <br />"
-                + " \n Here is your data "+user.getAttributes()+" and your authorities are "+ user.getAuthorities()+"' /> <br />"
-                + "<a href='/logout'>logout</a>" + "Credentials thingy be like "+ credentials+ "\n" ;
-    }
+//        return "Hello " + user.getAttributes().get("name") + ". Your email is " + user.getAttributes().get("email")
+//                + " and your profile picture is <img src='"+user.getAttributes().get("picture")+"' /> <br />"
+//                + " \n Here is your data "+user.getAttributes()+" and your authorities are "+ user.getAuthorities()+"' /> <br />"
+//                + "<a href='/logout'>logout</a>" + "Credentials thingy be like "+ credentials+ "\n" ;
+//    }
 
 //    @PostMapping("/https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate")
 //    public void getSteps(@RequestBody getSteps)
@@ -55,16 +63,16 @@ public class GoogleAuth2ControllerTest {
 //
 //    }
 
-    public OAuth2User getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return ((OAuth2AuthenticationToken)auth).getPrincipal();
-    }
-
-    public Object getcredentials() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return ((OAuth2AuthenticationToken)auth);
-    }
-
+//    public OAuth2User getCurrentUser() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        return ((OAuth2AuthenticationToken)auth).getPrincipal();
+//    }
+//
+//    public Object getcredentials() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        return ((OAuth2AuthenticationToken)auth);
+//    }
+//
 
 //    @GetMapping("/not-restricted")
 //    public String notRestricted() {

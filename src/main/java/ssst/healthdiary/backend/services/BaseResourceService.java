@@ -7,11 +7,8 @@ import java.util.Optional;
 public interface BaseResourceService<T extends DomainResource> {
 
     Optional<T> get(String resourceId);
-
     T save(T resource);
-
     void update(T resource);
-
     void delete(String resourceId);
 
 }

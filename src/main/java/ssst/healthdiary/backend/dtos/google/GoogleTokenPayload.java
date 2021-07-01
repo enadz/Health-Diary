@@ -15,5 +15,5 @@ public class GoogleTokenPayload {
 
   private String accessToken;
 
-  private String refreshToken;
+  //private String refreshToken;
 }

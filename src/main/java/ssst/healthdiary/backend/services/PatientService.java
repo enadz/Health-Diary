@@ -26,7 +26,6 @@ public class PatientService implements PatientServiceInterface {
             throw e;
         }
     }
-
     @Override
     public Patient save(Patient resource) {
         return patientHapiClient.save(resource);
@@ -68,5 +67,4 @@ public class PatientService implements PatientServiceInterface {
     public void deletePayload(String id) {
         delete(id);
     }
-
 }

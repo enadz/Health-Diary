@@ -13,20 +13,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity.httpBasic()
+/*        httpSecurity.httpBasic()
                     .and()
                     .csrf().disable()
                     .authorizeRequests()
                     .anyRequest()
-                    .authenticated().and().oauth2Login();
+                    .authenticated().and().oauth2Login();*/
 
-
-//        httpSecurity
-//                .antMatcher("/**").authorizeRequests()
-//                .antMatchers(new String[]{"/", "/not-restricted"}).permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .oauth2Login();
+//
+        httpSecurity
+                .csrf().disable()
+                .antMatcher("/**").authorizeRequests()
+                .antMatchers(new String[]{"/patient", "/swagger-ui.html", "/swagger-ui", "/not-restricted"}).permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .oauth2Login();
     }
 
 //    @Autowired

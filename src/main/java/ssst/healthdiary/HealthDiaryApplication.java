@@ -1,15 +1,21 @@
 package ssst.healthdiary;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-//import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import ssst.healthdiary.backend.clients.HealthDiaryFeignClient;
 
 
-@SpringBootApplication // (exclude = {SecurityAutoConfiguration.class}) @EnableFeignClients
+@SpringBootApplication (exclude = {SecurityAutoConfiguration.class})
+//@EnableFeignClients
 public class HealthDiaryApplication {
+
+   // @Autowired
+  //  HealthDiaryFeignClient healthDiaryFeignClient;
 
     public static void main(String[] args) {
         SpringApplication.run(HealthDiaryApplication.class, args);

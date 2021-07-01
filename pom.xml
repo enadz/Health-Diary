@@ -144,27 +144,17 @@
         <!-- Swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
+            <artifactId>springfox-spi</artifactId>
             <version>3.0.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-spi</artifactId>-->
-<!--            <version>3.0.0</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-spring-web</artifactId>
+            <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
 
@@ -194,6 +184,22 @@
             <artifactId>feign-httpclient</artifactId>
             <version>8.18.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>8.18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-ribbon</artifactId>
+            <version>8.18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
 
     </dependencies>
 

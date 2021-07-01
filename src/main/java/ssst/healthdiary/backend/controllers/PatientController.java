@@ -24,7 +24,6 @@ public class PatientController {
         return ResponseEntity.ok(result);
     }
 
-
     @PostMapping
     @ApiOperation(value = "${healthdiary.patient.create}")
     public ResponseEntity<PatientPayload> createPatient(@RequestBody final PatientPayload patientPayload) {
