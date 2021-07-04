@@ -1,0 +1,55 @@
+.main-card{
+    position: relative;
+    text-align: center;   
+    align-self: auto;
+  
+}
+
+.photo{
+    margin: 1%;
+    margin-top: 5%;
+}
+
+.image{
+    height: 250px;
+    width: 250px;
+}
+
+.card-header {
+    background-color: #049faa;
+    position: relative;
+    text-align: center;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+
+h3 {
+    color: azure;
+    font-weight: 500;
+}
+
+.card-block{
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.card{
+    border: teal;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    width: 20%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    height: fit-content;
+    text-align:center;
+}
+
+.google-button{
+    background-color: #049faa;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+font-weight: 500;}
