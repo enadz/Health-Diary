@@ -6,17 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 
 @Entity
 @Table(name = "google_tokens")
 @Getter
 @Setter
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoogleTokenEntity {
@@ -25,8 +22,8 @@ public class GoogleTokenEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "user_id")
-  private String userId;
+  @Column(name = "patient_id")
+  private String patientId;
 
   @Column(name = "access_token")
   private String accessToken;

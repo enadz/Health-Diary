@@ -24,7 +24,7 @@ public class GoogleAuth2ControllerTest {
 //    private static HttpTransport httpTransport;
 //    private static JsonFactory jsonFactory;
 //    private static HttpRequestInitializer httpRequestInitializer;
-    @Autowired
+  @Autowired
     GoogleTokenService googleTokenService;
 
     @PostMapping("/userToken")
@@ -37,7 +37,7 @@ public class GoogleAuth2ControllerTest {
 //        OAuth2User user = getCurrentUser();
 //        Object credentials =getcredentials();
 
-//
+
 //        Fitness service = new Fitness.Builder(
 //                httpTransport,
 //                jsonFactory,
