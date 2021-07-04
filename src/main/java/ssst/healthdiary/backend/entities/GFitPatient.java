@@ -1,6 +1,5 @@
 package ssst.healthdiary.backend.entities;
 import lombok.*;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,4 +29,7 @@ public class GFitPatient {
     public GFitPatient(int patientId) {
         this.patientId = patientId;
     }
+
+    @ManyToMany
+    private List<Doctor> doctors;
 }
