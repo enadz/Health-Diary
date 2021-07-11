@@ -4,14 +4,19 @@
 }
 
 .main-card-2{
-    position:fixed;
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    max-height: 500px;
+    display: block;
     text-align: center;  
     border: #00d2e6;
     border-style: solid;
     border-radius: 10%; 
     padding: 50px 70px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .photo{
@@ -61,6 +66,7 @@
     text-align:center;
 }
 
+
 .google-button{
     background-color: #00d2e6;
     color: white;
@@ -76,12 +82,15 @@
 .google-button-2{
     background-color: #00d2e6;
     color: white;
-    padding: 12px 20px;
+    padding: 15px 20px;
     border: none;
     cursor: pointer;
     font-weight: 500;
     font-size: 1.5vw;
     position:relative;
     align-content: center;
-    margin-top: 40px;
+}
+
+.chart { 
+    margin-top: -20px; 
 }

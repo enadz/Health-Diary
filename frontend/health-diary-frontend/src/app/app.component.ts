@@ -12,33 +12,23 @@ import { GoogleLoginProvider, SocialAuthService as AngularXSocialAuthService, So
 export class AppComponent {
   title = 'health-diary-frontend';
   user:SocialUser;
+  loggedIn: boolean;
 
-  constructor(private socialAuth: AngularXSocialAuthService) {
+  
+  constructor(private socialAuth: AngularXSocialAuthService, private http: HttpClient) {
   }
 
   ngOnInit(): void {
     this.socialAuth.authState.subscribe((user) =>{
       this.user = user;
+      this.loggedIn = (user != null);
     })    
   }
 
-    
-  signInWithGoogle(): void {
-    this.socialAuth
-      .signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then((res) => {
-        console.log(res);
-        this.user= res;
-      });
+  refreshToken(): void {
+    this.socialAuth.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
   }
 
-  signOut(): void{
-    this.socialAuth.signOut();
-    console.log("You've been signed out")
-  }
-
-
-/*
 forwardUserAuthToken(){
   this.http.post('localhost:8080/api/userToken',
   {
@@ -92,17 +82,19 @@ this.http.get("https://www.googleapis.com/fitness/v1/users/me/sessions?startTime
   console.log(value);
 });
 
-}*/
-/*  fitnes() {
-    this.http.get('https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=http://localhost:4200&prompt=consent&response_type=code&client_id=795094502559-t4hu0d42kn0v7ihb3e8ljr8ihk1ctcqg.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_glucose.read&access_type=offline',
-      {
-        headers: {
-          'Authorization': '{{user.authToken}}',
-        }
-      })
-      .subscribe(value => {
-        console.log(value);
-      });
-  }*/
+}
+  // fitnes() {
+  //   this.http.get('https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=http://localhost:4200&prompt=consent&response_type=code&client_id=795094502559-t4hu0d42kn0v7ihb3e8ljr8ihk1ctcqg.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_glucose.read&access_type=offline',
+  //     {
+  //       headers: {
+  //         'Authorization': '{{user.authToken}}',
+  //       }
+  //     })
+  //     .subscribe(value => {
+  //       console.log(value);
+  //     });
+  // }
 
 }
+
+

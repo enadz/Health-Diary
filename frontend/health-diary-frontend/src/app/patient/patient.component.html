@@ -6,10 +6,11 @@
         </div>
     
         <div class = "card-block">
-            <button class="google-button" (click)="signInWithGoogle()">Google</button>
+            <button class="google-button" (click)="signInWithGoogle()">
+                <i class="fa fa-google"></i>
+            </button>
         </div>
     </div>
-   
 </div>
 
 <div *ngIf="user" class="main-card-2">
@@ -23,10 +24,15 @@
         <h5>{{user.email}}</h5>
     </div>
     <div class = "card-block">
-        <button class="google-button-2" (click)="signOut()">sign out</button>
+        <button class="google-button-2" (click)="signOut()">
+            <i class="fa fa-sign-out"></i>
+        </button>
     </div>
 </div>
 
+<div *ngIf="user" class="chart">
+    <line-chart></line-chart>
+</div>
 
 <!-- <button (click)="signOut()">sign out</button>
 
