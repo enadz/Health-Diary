@@ -8,10 +8,16 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {provideGoogleAuthConfig} from './provide-google-auth-config';
 
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { PatientComponent } from './patient/patient.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PatientComponent,
+    DoctorComponent,
   ],
   imports: [
     HttpClientModule,

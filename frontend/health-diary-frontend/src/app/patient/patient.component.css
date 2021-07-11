@@ -1,0 +1,87 @@
+.main-card{
+    position: relative;
+    text-align: center;   
+}
+
+.main-card-2{
+    position:fixed;
+    text-align: center;  
+    border: #00d2e6;
+    border-style: solid;
+    border-radius: 10%; 
+    padding: 50px 70px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.photo{
+    margin: 1%;
+    margin-top: 5%;
+}
+
+.image{
+    height: 250px;
+    width: 250px;
+}
+
+.card-header {
+    background-color: #00d2e6;
+    position: relative;
+    text-align: center;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.card-text{
+    font-size: 2vw;
+    position: relative;
+
+}
+
+.card-title{
+    font-size: 3vw;
+    position: relative;
+}
+
+
+.card-block{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card{
+    border: #00d2e6;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    width: 40%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align:center;
+}
+
+.google-button{
+    background-color: #00d2e6;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.5vw;
+    position:relative;
+    align-content: center;
+}
+
+.google-button-2{
+    background-color: #00d2e6;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.5vw;
+    position:relative;
+    align-content: center;
+    margin-top: 40px;
+}

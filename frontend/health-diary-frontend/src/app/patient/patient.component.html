@@ -1,0 +1,36 @@
+<div *ngIf="!user" class="main-card">
+    <div class = "card">
+        <div class = "card-block">
+            <h4 class="card-title"> Not Signed In</h4>
+            <p class="card-text">Sign In With</p>
+        </div>
+    
+        <div class = "card-block">
+            <button class="google-button" (click)="signInWithGoogle()">Google</button>
+        </div>
+    </div>
+   
+</div>
+
+<div *ngIf="user" class="main-card-2">
+    <div class="photo">
+        <img src="{{user.photoUrl}}" class="image">
+    </div>
+    <div class = "card-block">
+        <h5>Welcome</h5>
+        <h5> {{user.name}}</h5>
+        <!-- <p>{{user.authToken}}</p> -->
+        <h5>{{user.email}}</h5>
+    </div>
+    <div class = "card-block">
+        <button class="google-button-2" (click)="signOut()">sign out</button>
+    </div>
+</div>
+
+
+<!-- <button (click)="signOut()">sign out</button>
+
+<button (click)="getSteps()">Get Steps</button>
+<button (click)="getSleep()">Get Sleep</button>
+
+<button (click)="forwardUserAuthToken()">TOKEN</button> -->

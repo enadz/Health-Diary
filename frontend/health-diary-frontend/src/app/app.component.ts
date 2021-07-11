@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import { GoogleLoginProvider, SocialAuthService as AngularXSocialAuthService, SocialUser } from 'angularx-social-login';
 
 @Component({
