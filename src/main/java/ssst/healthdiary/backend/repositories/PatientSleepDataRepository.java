@@ -7,5 +7,5 @@ import ssst.healthdiary.backend.entities.PatientSleepData;
 public interface PatientSleepDataRepository extends CrudRepository<PatientSleepData, Integer> {
 
     @Query(value = "SELECT * FROM sleep_data WHERE gfitpatient_patient_id = ?1", nativeQuery = true)
-    public Iterable<PatientSleepData> findByPatientId(@Param("id") int id);
+    public Iterable<PatientSleepData> findByPatientId(@Param("id") String id);
 }

@@ -6,5 +6,5 @@ import ssst.healthdiary.backend.entities.PatientActivityData;
 
 public interface PatientActivityDataRepository extends CrudRepository<PatientActivityData, Integer> {
     @Query(value = "SELECT * FROM step_data WHERE gfitpatient_patient_id = ?1", nativeQuery = true)
-    public Iterable<PatientActivityData> findByPatientId(@Param("id") int id);
+    public Iterable<PatientActivityData> findByPatientId(@Param("id") String id);
 }

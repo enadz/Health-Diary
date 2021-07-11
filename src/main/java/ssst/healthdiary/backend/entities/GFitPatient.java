@@ -16,7 +16,7 @@ public class GFitPatient {
 
     @Id
     @Column(name = "patient_id")
-    private int patientId;
+    private String patientId;
 
     //public GFitPatient(int patientId) {this.patientId = patientId;}
 

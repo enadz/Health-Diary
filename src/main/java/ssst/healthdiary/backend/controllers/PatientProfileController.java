@@ -9,7 +9,7 @@ import ssst.healthdiary.backend.entities.PatientOxygenData;
 import ssst.healthdiary.backend.entities.PatientSleepData;
 import ssst.healthdiary.backend.services.GFitPatientService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/profile")
 public class PatientProfileController {
@@ -21,19 +21,24 @@ public class PatientProfileController {
         return new ResponseEntity(gFitPatientService.getAllPatients(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getPatientById(@PathVariable String patientId){
+        return new ResponseEntity(gFitPatientService.getPatient(patientId), HttpStatus.OK);
+    }
+
 
     @GetMapping("/{id}/oxygen")
-    public ResponseEntity getOxygenDetails(@PathVariable int id){
+    public ResponseEntity getOxygenDetails(@PathVariable String id){
         return new ResponseEntity(gFitPatientService.getPatientOxygen(id), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/steps")
-    public ResponseEntity getStepDetails(@PathVariable int id){
+    public ResponseEntity getStepDetails(@PathVariable String id){
         return new ResponseEntity(gFitPatientService.getPatientActivity(id), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/sleep")
-    public ResponseEntity getSleepDetails(@PathVariable int id){
+    public ResponseEntity getSleepDetails(@PathVariable String id){
         return new ResponseEntity(gFitPatientService.getPatientSleep(id), HttpStatus.OK);
     }
 
@@ -57,7 +62,7 @@ public class PatientProfileController {
 
 
     @PostMapping("/{id}")
-    public ResponseEntity addPatient(@PathVariable int id){
+    public ResponseEntity addPatient(@PathVariable String id){
         gFitPatientService.addNewPatient(id);
         return new ResponseEntity(HttpStatus.OK);
     }

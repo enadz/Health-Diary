@@ -30,17 +30,22 @@ public class GFitPatientService {
         return new ResponseEntity(patientRepository.findAll(), HttpStatus.OK);
     }
 
-    public Iterable<PatientOxygenData> getPatientOxygen (int patientId){
+    public ResponseEntity getPatient(String patientId){
+        return new ResponseEntity(patientRepository.findById(patientId), HttpStatus.OK);
+    }
+
+
+    public Iterable<PatientOxygenData> getPatientOxygen (String patientId){
         Iterable<PatientOxygenData> data = patientOxygenDataRepository.findByPatientId(patientId);
         return data;
     }
 
-    public Iterable<PatientActivityData> getPatientActivity (int patientId){
+    public Iterable<PatientActivityData> getPatientActivity (String patientId){
         Iterable<PatientActivityData> data = patientActivityDataRepository.findByPatientId(patientId);
         return data;
     }
 
-    public Iterable<PatientSleepData> getPatientSleep (int patientId){
+    public Iterable<PatientSleepData> getPatientSleep (String patientId){
         Iterable<PatientSleepData> data = patientSleepDataRepository.findByPatientId(patientId);
         return data;
     }
@@ -56,7 +61,7 @@ public class GFitPatientService {
         patientActivityDataRepository.save(new PatientActivityData(steps.getId(), steps.getGfitpatient(), steps.getStartTime(), steps.getEndTime(), steps.getSteps()));
     }
 
-    public void addNewPatient(int patientId){
+    public void addNewPatient(String patientId){
         patientRepository.save(new GFitPatient(patientId));
     }
 
