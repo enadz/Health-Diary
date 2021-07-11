@@ -26,6 +26,5 @@ public class Doctor {
     @Column(name="password")
     private String password;
 
-    @ManyToMany
-    private List<GFitPatient> patients;
+
 }

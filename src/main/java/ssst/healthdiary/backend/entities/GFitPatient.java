@@ -1,4 +1,5 @@
 package ssst.healthdiary.backend.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,19 +18,6 @@ public class GFitPatient {
     @Column(name = "patient_id")
     private int patientId;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<PatientSleepData> sleepDataList;
+    //public GFitPatient(int patientId) {this.patientId = patientId;}
 
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<PatientActivityData> activityDataList;
-
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<PatientOxygenData> oxygenDataList;
-
-    public GFitPatient(int patientId) {
-        this.patientId = patientId;
-    }
-
-    @ManyToMany
-    private List<Doctor> doctors;
 }

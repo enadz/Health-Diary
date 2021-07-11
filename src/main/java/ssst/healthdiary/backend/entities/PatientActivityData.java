@@ -1,4 +1,5 @@
 package ssst.healthdiary.backend.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 
@@ -15,8 +16,8 @@ public class PatientActivityData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "patient_id")
-    private int patientId;
+    @ManyToOne
+    private GFitPatient gfitpatient;
 
     @Column(name = "startTimeMillis")
     private String startTime;

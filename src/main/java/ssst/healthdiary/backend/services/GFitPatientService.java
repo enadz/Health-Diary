@@ -46,14 +46,14 @@ public class GFitPatientService {
     }
 
     public void addOxygen(PatientOxygenData oxygen){
-        patientOxygenDataRepository.save(new PatientOxygenData(oxygen.getId(), oxygen.getPatientId(), oxygen.getStartTime(), oxygen.getEndTime(), oxygen.getOxygenSaturation()));
+        patientOxygenDataRepository.save(new PatientOxygenData(oxygen.getId(), oxygen.getGfitpatient() , oxygen.getStartTime(), oxygen.getEndTime(), oxygen.getOxygenSaturation()));
     }
     public void addSleep(PatientSleepData sleep){
-        patientSleepDataRepository.save(new PatientSleepData(sleep.getId(), sleep.getPatientId(), sleep.getStartTime(), sleep.getEndTime(), sleep.getStage()));
+        patientSleepDataRepository.save(new PatientSleepData(sleep.getId(), sleep.getGfitpatient(), sleep.getStartTime(), sleep.getEndTime(), sleep.getStage()));
     }
 
     public void addSteps(PatientActivityData steps){
-        patientActivityDataRepository.save(new PatientActivityData(steps.getId(), steps.getPatientId(), steps.getStartTime(), steps.getEndTime(), steps.getSteps()));
+        patientActivityDataRepository.save(new PatientActivityData(steps.getId(), steps.getGfitpatient(), steps.getStartTime(), steps.getEndTime(), steps.getSteps()));
     }
 
     public void addNewPatient(int patientId){

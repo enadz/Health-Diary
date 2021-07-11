@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import ssst.healthdiary.backend.clients.HealthDiaryFeignClient;
+//import ssst.healthdiary.backend.clients.HealthDiaryFeignClient;
 
 
 @SpringBootApplication (exclude = {SecurityAutoConfiguration.class})

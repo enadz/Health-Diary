@@ -9,7 +9,7 @@ import ssst.healthdiary.backend.entities.PatientOxygenData;
 import ssst.healthdiary.backend.entities.PatientSleepData;
 import ssst.healthdiary.backend.services.GFitPatientService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/profile")
 public class PatientProfileController {
