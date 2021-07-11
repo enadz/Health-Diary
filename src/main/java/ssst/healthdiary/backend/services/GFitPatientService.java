@@ -30,10 +30,9 @@ public class GFitPatientService {
         return patientRepository.findAll();
     }
 
-    public ResponseEntity getPatient(String patientId){
-        return new ResponseEntity(patientRepository.findById(patientId), HttpStatus.OK);
+    public Optional<GFitPatient> getPatient(String patientId){
+        return patientRepository.findById(patientId);
     }
-
 
     public Iterable<PatientOxygenData> getPatientOxygen (String patientId){
         Iterable<PatientOxygenData> data = patientOxygenDataRepository.findByPatientId(patientId);

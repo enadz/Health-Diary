@@ -11,6 +11,7 @@ import ssst.healthdiary.backend.entities.PatientSleepData;
 import ssst.healthdiary.backend.services.GFitPatientService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -25,24 +26,24 @@ public class PatientProfileController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getPatientById(@PathVariable String patientId){
-        return new ResponseEntity(gFitPatientService.getPatient(patientId), HttpStatus.OK);
+    public Optional<GFitPatient> getPatientById(@PathVariable String patientId){
+        return gFitPatientService.getPatient(patientId);
     }
 
 
     @GetMapping("/{id}/oxygen")
-    public ResponseEntity getOxygenDetails(@PathVariable String id){
-        return new ResponseEntity(gFitPatientService.getPatientOxygen(id), HttpStatus.OK);
+    public Iterable<PatientOxygenData> getOxygenDetails(@PathVariable String id){
+        return gFitPatientService.getPatientOxygen(id);
     }
 
     @GetMapping("/{id}/steps")
-    public ResponseEntity getStepDetails(@PathVariable String id){
-        return new ResponseEntity(gFitPatientService.getPatientActivity(id), HttpStatus.OK);
+    public Iterable<PatientActivityData> getStepDetails(@PathVariable String id){
+        return gFitPatientService.getPatientActivity(id);
     }
 
     @GetMapping("/{id}/sleep")
-    public ResponseEntity getSleepDetails(@PathVariable String id){
-        return new ResponseEntity(gFitPatientService.getPatientSleep(id), HttpStatus.OK);
+    public Iterable<PatientSleepData> getSleepDetails(@PathVariable String id){
+        return gFitPatientService.getPatientSleep(id);
     }
 
     @PostMapping("/oxygen")
