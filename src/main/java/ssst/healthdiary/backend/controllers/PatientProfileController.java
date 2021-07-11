@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ssst.healthdiary.backend.entities.GFitPatient;
 import ssst.healthdiary.backend.entities.PatientActivityData;
 import ssst.healthdiary.backend.entities.PatientOxygenData;
 import ssst.healthdiary.backend.entities.PatientSleepData;
 import ssst.healthdiary.backend.services.GFitPatientService;
+
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -17,8 +20,8 @@ public class PatientProfileController {
     GFitPatientService gFitPatientService;
 
     @GetMapping
-    public ResponseEntity getAllPatients(){
-        return new ResponseEntity(gFitPatientService.getAllPatients(), HttpStatus.OK);
+    public Iterable<GFitPatient> getAllPatients(){
+        return gFitPatientService.getAllPatients();
     }
 
     @GetMapping("/{id}")

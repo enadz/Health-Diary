@@ -26,8 +26,8 @@ public class GFitPatientService {
     @Autowired
     PatientRepository patientRepository;
 
-    public ResponseEntity getAllPatients(){
-        return new ResponseEntity(patientRepository.findAll(), HttpStatus.OK);
+    public Iterable<GFitPatient> getAllPatients(){
+        return patientRepository.findAll();
     }
 
     public ResponseEntity getPatient(String patientId){
