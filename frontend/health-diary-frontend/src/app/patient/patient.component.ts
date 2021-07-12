@@ -22,8 +22,8 @@ export class PatientComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
-  constructor(private socialAuth: AngularXSocialAuthService, 
-    private http: HttpClient, 
+  constructor(private socialAuth: AngularXSocialAuthService,
+    private http: HttpClient,
     private patientService: PatientService) {
   }
 
