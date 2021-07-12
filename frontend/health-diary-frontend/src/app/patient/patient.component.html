@@ -6,14 +6,14 @@
         </div>
     
         <div class = "card-block">
-            <button class="google-button" (click)="signInWithGoogle()">
+            <button class="google-button dugme-krug" (click)="signInWithGoogle()">
                 <i class="fa fa-google"></i>
             </button>
         </div>
     </div>
 </div>
 
-<div *ngIf="user" class="main-card-2">
+<div *ngIf="user" class="main-card-2" style="margin-left: 20%">
     <div class="photo">
         <img src="{{user.photoUrl}}" class="image">
     </div>
@@ -24,7 +24,7 @@
         <h5>{{user.email}}</h5>
     </div>
     <div class = "card-block">
-        <button class="google-button-2" (click)="signOut()">
+        <button class="google-button-2 dugme-krug-signout" (click)="signOut()">
             <i class="fa fa-sign-out"></i>
         </button>
     </div>

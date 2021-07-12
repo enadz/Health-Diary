@@ -4,6 +4,7 @@
 }
 
 .main-card-2{
+    display: inline-block;
     position: relative;
     flex: 1;
     max-width: 400px;
@@ -70,11 +71,11 @@
 .google-button{
     background-color: #00d2e6;
     color: white;
-    padding: 12px 20px;
+    /* padding: 10px 20px; */
     border: none;
     cursor: pointer;
     font-weight: 500;
-    font-size: 1.5vw;
+    font-size: 45px;
     position:relative;
     align-content: center;
 }
@@ -86,11 +87,27 @@
     border: none;
     cursor: pointer;
     font-weight: 500;
-    font-size: 1.5vw;
+    font-size: 25px;
     position:relative;
     align-content: center;
+    margin-top: 35px;
 }
 
+.dugme-krug {
+    width: 100px;
+    height: 100px;
+    background: #00d2e6;
+    border-radius: 50%
+  }
+
+  .dugme-krug-signout {
+    width: 75px;
+    height: 75px;
+    background: #00d2e6;
+    border-radius: 50%
+  }
+
 .chart { 
+    display: inline-block;
     margin-top: -20px; 
 }

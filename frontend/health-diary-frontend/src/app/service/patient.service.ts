@@ -12,7 +12,7 @@ import { IPatientData } from '../patient/IPatientData';
 export class PatientService {
     constructor(private http: HttpClient) { }
 
-    public getData(): Observable<IPatientData> {
-        return this.http.get<IPatientData>(`${environment.api}/profile`)
+    getData(): Observable<IPatientData[]> {
+        return this.http.get<IPatientData[]>(`${environment.api}/profile`)
     }
 }
