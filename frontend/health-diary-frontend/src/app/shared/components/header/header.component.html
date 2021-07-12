@@ -1,0 +1,15 @@
+<div>
+    <div *ngIf = "!userIsAuthenticated"> 
+        <nav>
+            <a routerLink="/">Sign In</a>
+        </nav>
+    </div>
+
+    <div *ngIf = "userIsAuthenticated">
+        <nav>
+            
+            <a routerLink="/patient">Patient</a>
+        </nav>
+        <button (click)="signOut()"> Sign Out </button>
+    </div>
+</div>
