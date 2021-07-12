@@ -41,8 +41,7 @@ export class PatientComponent implements OnInit {
   getPData() {
     this.patientService
       .getData()
-      .subscribe((data) => (this.patientId = data));
-    console.log("jebem mu mater ako je " + (JSON.stringify(this.dataForPatient.patientId)));
+      .subscribe((data) => { (this.patientId = data); console.log('Evo ih: ', data); });
   }
 
   signInWithGoogle(): void {
