@@ -26,5 +26,8 @@ public class Doctor {
     @Column(name="password")
     private String password;
 
+    @ManyToOne
+    private GFitPatient gfitpatient;
+
 
 }

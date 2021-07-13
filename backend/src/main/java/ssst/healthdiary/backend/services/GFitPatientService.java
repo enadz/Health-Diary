@@ -3,14 +3,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import ssst.healthdiary.backend.entities.GFitPatient;
-import ssst.healthdiary.backend.entities.PatientActivityData;
-import ssst.healthdiary.backend.entities.PatientOxygenData;
-import ssst.healthdiary.backend.entities.PatientSleepData;
-import ssst.healthdiary.backend.repositories.PatientActivityDataRepository;
-import ssst.healthdiary.backend.repositories.PatientOxygenDataRepository;
-import ssst.healthdiary.backend.repositories.PatientRepository;
-import ssst.healthdiary.backend.repositories.PatientSleepDataRepository;
+import ssst.healthdiary.backend.entities.*;
+import ssst.healthdiary.backend.repositories.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -25,6 +19,10 @@ public class GFitPatientService {
     PatientActivityDataRepository patientActivityDataRepository;
     @Autowired
     PatientRepository patientRepository;
+    @Autowired
+    DoctorRepository doctorRepository;
+    @Autowired
+    PatientHeartDataRepository patientHeartDataRepository;
 
     public Iterable<GFitPatient> getAllPatients(){
         return patientRepository.findAll();
@@ -39,6 +37,11 @@ public class GFitPatientService {
         return data;
     }
 
+    public Iterable<PatientHeartData> getPatientHeart (String patientId){
+        Iterable<PatientHeartData> data = patientHeartDataRepository.findByPatientId(patientId);
+        return data;
+    }
+
     public Iterable<PatientActivityData> getPatientActivity (String patientId){
         Iterable<PatientActivityData> data = patientActivityDataRepository.findByPatientId(patientId);
         return data;
@@ -49,9 +52,19 @@ public class GFitPatientService {
         return data;
     }
 
+    public Iterable<Doctor> getPatientDoctors (String patientId){
+        Iterable<Doctor> data = doctorRepository.findByPatientId(patientId);
+        return data;
+    }
+
     public void addOxygen(PatientOxygenData oxygen){
         patientOxygenDataRepository.save(new PatientOxygenData(oxygen.getId(), oxygen.getGfitpatient() , oxygen.getStartTime(), oxygen.getEndTime(), oxygen.getOxygenSaturation()));
     }
+
+    public void addHeartrate(PatientHeartData bpm){
+        patientHeartDataRepository.save(new PatientHeartData(bpm.getId(), bpm.getGfitpatient() , bpm.getStartTime(), bpm.getEndTime(), bpm.getBpm()));
+    }
+
     public void addSleep(PatientSleepData sleep){
         patientSleepDataRepository.save(new PatientSleepData(sleep.getId(), sleep.getGfitpatient(), sleep.getStartTime(), sleep.getEndTime(), sleep.getStage()));
     }
@@ -59,6 +72,11 @@ public class GFitPatientService {
     public void addSteps(PatientActivityData steps){
         patientActivityDataRepository.save(new PatientActivityData(steps.getId(), steps.getGfitpatient(), steps.getStartTime(), steps.getEndTime(), steps.getSteps()));
     }
+
+    public void addDoctor(Doctor doctor){
+        doctorRepository.save(new Doctor(doctor.getDoctorId(), doctor.getName(), doctor.getEmail(), doctor.getPassword(), doctor.getGfitpatient()));
+    }
+
 
     public void addNewPatient(String patientId){
         patientRepository.save(new GFitPatient(patientId));

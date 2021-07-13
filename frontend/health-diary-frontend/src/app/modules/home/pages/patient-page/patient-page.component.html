@@ -1,19 +1,94 @@
-
-<div class="grid-2">
-    <app-user-card></app-user-card>
-<div></div>
-</div>
-
-
 <div class="grid-2">
     <div>
-        <p>oxygen</p>
-        <div class="oxy-circle">
-            <p>{{oxygenData?.oxygenSaturation}}</p>
+        <app-user-card></app-user-card>
+    </div>
+
+    <div class="doctor-list">
+        <h3>My Doctors</h3>
+        <div class="doctor-card">
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctorList; let i = index">
+                        <td><img src="{{doctor?.image}}" class="image"></td>
+                        <td>{{doctor?.name}}</td>
+                        <td>{{doctor?.email}}</td>
+                        <td>{{doctor?.password}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div>
-        <app-line-chart></app-line-chart>
-    </div>
+
 </div>
 
+<div class="grid-1">
+        <div class="card">
+            <h3>Oxygen</h3>
+            
+            <div *ngIf="oxygenData?.oxygenSaturation*100 > 97" class="green-circle">
+                <p>{{oxygenData?.oxygenSaturation*100}} % </p>
+            </div>
+    
+            <div *ngIf="97 > oxygenData?.oxygenSaturation*100 && oxygenData?.oxygenSaturation*100 > 95" class="orange-circle">
+                <p>{{oxygenData?.oxygenSaturation*100}} % </p>
+            </div>
+    
+            <div *ngIf="95 > oxygenData?.oxygenSaturation*100 && oxygenData?.oxygenSaturation*100 > 0" class="red-circle">
+                <p>{{oxygenData?.oxygenSaturation*100}} % </p>
+            </div>
+    
+            <div *ngIf="oxygenData?.oxygenSaturation*1 == 0" class="gray-circle">
+                <p>{{oxygenData?.oxygenSaturation*100}} % </p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <h3>Steps</h3>
+    
+            <div *ngIf="stepsToday?.steps > 4999" class="green-circle">
+                <p>{{stepsToday?.steps}} </p>
+             </div>
+    
+            <div *ngIf="5000 > stepsToday?.steps && stepsToday?.steps > 2999" class="orange-circle">
+                <p>{{stepsToday?.steps}} </p>
+            </div>
+    
+            <div *ngIf="3000 > stepsToday?.steps && stepsToday?.steps*1 > 0" class="red-circle">
+                <p>{{stepsToday?.steps}} </p>
+            </div>
+    
+            <div *ngIf="stepsToday?.steps*1 == 0" class="gray-circle">
+                <p>{{stepsToday?.steps*1}} </p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <h3>Heart Rate</h3>
+    
+            <div *ngIf="avgHeartrateToday?.bpm > 110 || 61 > avgHeartrateToday?.bpm " class="red-circle">
+                <p>{{avgHeartrateToday?.bpm}} </p>
+             </div>
+    
+    
+            <div *ngIf="110 > avgHeartrateToday?.bpm && avgHeartrateToday?.bpm > 60" class="green-circle">
+                <p>{{avgHeartrateToday?.bpm}} </p>
+            </div>
+    
+            <div *ngIf="avgHeartrateToday?.bpm*1 == 0" class="gray-circle">
+                <p>{{avgHeartrateToday?.bpm*1}} </p>
+            </div>
+        </div>
+</div>
+
+<div>
+    <!-- <a routerLink="/patient/chart">See Charts</a> -->
+    <app-line-chart></app-line-chart>
+</div>

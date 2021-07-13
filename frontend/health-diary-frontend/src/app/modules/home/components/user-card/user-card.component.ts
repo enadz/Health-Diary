@@ -26,7 +26,7 @@ export class UserCardComponent implements OnInit {
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe( isAuth => {
       this.userIsAuthenticated = isAuth
-      console.log("isuaht", this.userIsAuthenticated)
+      console.log("is auth", this.userIsAuthenticated)
     });
     console.log(this.userIsAuthenticated);
   }
