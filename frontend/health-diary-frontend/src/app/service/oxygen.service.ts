@@ -12,6 +12,6 @@ export class OxygenService {
     constructor(private http: HttpClient) { }
 
     getData(): Observable<IOxygenData[]> {
-        return this.http.get<IOxygenData[]>(`${environment.api}/profile/oxygen`)
+        return this.http.get<IOxygenData[]>(`${environment.api}/profile/{id/oxygen`)
     }
 }

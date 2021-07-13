@@ -12,6 +12,6 @@ export class StepsService {
     constructor(private http: HttpClient) { }
 
     getData(): Observable<IStepsData[]> {
-        return this.http.get<IStepsData[]>(`${environment.api}/profile/steps`)
+        return this.http.get<IStepsData[]>(`${environment.api}/profile/{id}/steps`)
     }
 }

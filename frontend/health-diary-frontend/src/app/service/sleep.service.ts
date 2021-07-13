@@ -12,6 +12,6 @@ export class SleepService {
     constructor(private http: HttpClient) { }
 
     getData(): Observable<ISleepData[]> {
-        return this.http.get<ISleepData[]>(`${environment.api}/profile/sleep`)
+        return this.http.get<ISleepData[]>(`${environment.api}/profile/{id}/sleep`)
     }
 }
