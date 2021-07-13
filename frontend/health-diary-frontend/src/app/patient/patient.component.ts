@@ -8,9 +8,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { RouterModule, Routes } from '@angular/router';
 import { GoogleLoginProvider, SocialAuthService as AngularXSocialAuthService, SocialUser } from 'angularx-social-login';
-import { PatientData } from '../patient/PatientData';
+import { PatientData } from '../classes/PatientData';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { OxygenService } from '../service/oxygen.service';
+import { SleepService } from '../service/sleep.service';
+import { StepsService } from '../service/steps.service';
 
 @Component({
   selector: 'app-patient',
@@ -24,24 +27,42 @@ export class PatientComponent implements OnInit {
 
   constructor(private socialAuth: AngularXSocialAuthService,
     private http: HttpClient,
-    private patientService: PatientService) {
+    private patientService: PatientService,
+    private oxygenService: OxygenService,
+    private sleepService: SleepService,
+    private stepsService: StepsService) {
   }
 
   public patientId = [];
-  dataForPatient: PatientData = new PatientData();
+  public oxygenSaturation = [];
+  public stage = [];
+  public startTime = [];
+  public steps = [];
 
   ngOnInit(): void {
     this.socialAuth.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      this.getPData();
+      this.grabAllData();
     })
   }
 
-  getPData() {
+  grabAllData() {
     this.patientService
       .getData()
       .subscribe((data) => { (this.patientId = data); console.log('Evo ih: ', data); });
+
+      this.oxygenService
+      .getData()
+      .subscribe((data) => { (this.oxygenSaturation = data); console.log('Evo ih: ', data); });
+
+      this.sleepService
+      .getData()
+      .subscribe((data) => { (this.stage = data, this.startTime = data); console.log('Evo ih: ', data); });
+
+      this.stepsService
+      .getData()
+      .subscribe((data) => { (this.steps = data, this.startTime = data); console.log('Evo ih: ', data); });
   }
 
   signInWithGoogle(): void {
