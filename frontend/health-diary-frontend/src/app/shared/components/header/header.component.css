@@ -1,0 +1,47 @@
+.topnav {
+    background-color: #00454e;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+.topnav a {
+   float: left;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+ }
+  
+.topnav a:hover {
+   background-color: #ddd;
+   color: black;
+}
+ 
+.topnav a:focus {
+  background-color: #00d2e6;
+  color: white;
+}
+
+h3 {
+    color: azure;
+    font-weight: 500;
+    height: 20px;
+    vertical-align:middle;
+    background-color:#00d2e6;
+    padding-bottom: 55px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.logo-image{
+    overflow: hidden;
+    margin-top:13px;
+    margin-left: 40%;
+}
+
+.logo-image2{
+    overflow: hidden;
+    margin-top:13px;
+    margin-left: 33%;
+}

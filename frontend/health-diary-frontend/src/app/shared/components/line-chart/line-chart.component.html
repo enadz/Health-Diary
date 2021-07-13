@@ -1,7 +1,14 @@
-<p> Postojim #Chart </p>
-<div style="display: block">
-    <canvas baseChart
-            [data]="pieChartData"
-            [labels]="pieChartLabels"
-            [chartType]="pieChartType"></canvas>
+<!-- <p> Postojim #Chart </p> -->
+<br/><br/><br/>
+<div style="display: block; height: 400px; width: 800px; margin:auto">
+    <canvas baseChart width="600" height="400"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      [plugins]="lineChartPlugins">
+    </canvas>
   </div>
+  
